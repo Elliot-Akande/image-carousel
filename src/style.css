@@ -1,0 +1,31 @@
+/* Container Default */
+* {
+  box-sizing: border-box;
+}
+
+.crsl {
+  height: 400px;
+  width: 600px;
+  position: relative;
+  overflow: hidden;
+}
+
+.crsl__images {
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.crsl__image {
+  scroll-snap-align: start;
+  /* height: 400px;
+  width: 600px; */
+}
+
+.crsl__image img {
+  height: 400px;
+  width: 600px;
+  object-fit: scale-down;
+}
