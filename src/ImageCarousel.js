@@ -1,3 +1,4 @@
+import "./style.css";
 import svg from "svg";
 import chevronLeft from "./chevron-left.svg";
 import chevronRight from "./chevron-right.svg";
@@ -13,7 +14,8 @@ const ImageCarousel = function imageCarouselFactory(
   ) {
     // Container
     const container = document.createElement("div");
-    container.classList.add("crsl__item");
+    container.classList.add("crsl__image");
+    container.dataset.index = index;
 
     // Image
     const img = document.createElement("img");
