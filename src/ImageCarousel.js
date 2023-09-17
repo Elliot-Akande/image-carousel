@@ -76,9 +76,13 @@ const ImageCarousel = function imageCarouselFactory(
     }
 
     // Indicators Container
+    const indicatorContainer = document.createElement("div");
+    indicatorContainer.classList.add("crsl__indicator-container");
+    carousel.appendChild(indicatorContainer);
+
     const indicators = document.createElement("div");
     indicators.classList.add("crsl__indicators");
-    carousel.appendChild(indicators);
+    indicatorContainer.appendChild(indicators);
 
     // Images Container
     const imagesContainer = document.createElement("div");
