@@ -1,7 +1,7 @@
 {
-  "name": "my-webpack-project",
-  "version": "1.0.0",
-  "description": "My webpack project",
+  "name": "@akande/image-carousel",
+  "version": "0.0.1",
+  "description": "A customizable image carousel module for web applications",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,9 +11,25 @@
     "watch": "webpack --watch",
     "serve": "webpack serve"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "image",
+    "carousel",
+    "slider",
+    "slideshow",
+    "gallery",
+    "JavaScript",
+    "web",
+    "frontend",
+    "UI",
+    "component",
+    "customizable",
+    "web development",
+    "image viewer",
+    "image navigation",
+    "image presentation"
+  ],
+  "author": "Elliot Akande",
+  "license": "MIT",
   "devDependencies": {
     "@webpack-cli/generators": "^3.0.7",
     "css-loader": "^6.8.1",
@@ -31,5 +47,13 @@
   "dependencies": {
     "just-modulo": "^2.2.0",
     "svg": "^0.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elliot-Akande/image-carousel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Elliot-Akande/image-carousel/issues"
+  },
+  "homepage": "https://github.com/Elliot-Akande/image-carousel#readme"
 }
