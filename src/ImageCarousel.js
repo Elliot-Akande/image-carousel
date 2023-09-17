@@ -1,5 +1,6 @@
 import "./style.css";
 import svg from "svg";
+import modulo from "just-modulo";
 import chevronLeft from "./chevron-left.svg";
 import chevronRight from "./chevron-right.svg";
 
