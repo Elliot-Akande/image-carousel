@@ -1,6 +1,6 @@
 {
   "name": "@akande/image-carousel",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A customizable image carousel module for web applications",
   "main": "dist/main.js",
   "scripts": {
