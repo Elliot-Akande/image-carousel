@@ -55,6 +55,9 @@
 .crsl__icon {
   width: 50px;
   fill: #d1d5db;
+  background: #00000000;
+  border-radius: 50%;
+  transition: 100ms;
 }
 
 /* Indicator Defaults */
@@ -97,7 +100,6 @@
 .crsl__control:hover .crsl__icon {
   fill: #ffffff;
   background: #0000005f;
-  border-radius: 50%;
 }
 
 /* Indicator Hover */
