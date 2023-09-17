@@ -67,7 +67,7 @@ If you encounter any issues or have questions about this module, please [open an
 
 - Elliot Akande
 - Email: [elbo.lynch@gmail.com](elbo.lynch@gmail.com)
-- GitHub: [Your GitHub Profile](https://github.com/Elliot-Akande)
+- GitHub: [https://github.com/Elliot-Akande](https://github.com/Elliot-Akande)
 
 ## Keywords
 
