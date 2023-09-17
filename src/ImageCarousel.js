@@ -8,6 +8,13 @@ const ImageCarousel = function imageCarouselFactory(
   images = [],
   customClass = ""
 ) {
+  let switchTimer;
+
+  const resetTimer = function clearThenStartSwitchTimer() {
+    clearTimeout(switchTimer);
+    switchTimer = setTimeout(() => navigateImages("next"), 5000);
+  };
+
   const changeImg = function slideCarouselToImg(index) {
     const img = document.querySelector(`[data-index='${index}'].crsl__image`);
     img.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
@@ -18,16 +25,18 @@ const ImageCarousel = function imageCarouselFactory(
     );
     lastIndicator.classList.toggle("crsl__indicator--active");
     nextIndicator.classList.toggle("crsl__indicator--active");
+
+    resetTimer();
   };
 
-  const controlPressed = function slideCarouselToNextImage(event) {
+  const navigateImages = function slideCarouselToNextImage(direction) {
     const activeIndicator = document.querySelector(".crsl__indicator--active");
     const lastIndex = parseInt(activeIndicator.dataset.index, 10);
 
-    const control = event.currentTarget;
-    const index = control.classList.contains("crsl__control--prev")
-      ? modulo(lastIndex - 1, images.length)
-      : modulo(lastIndex + 1, images.length);
+    const index =
+      direction === "prev"
+        ? modulo(lastIndex - 1, images.length)
+        : modulo(lastIndex + 1, images.length);
 
     changeImg(index);
   };
@@ -89,7 +98,7 @@ const ImageCarousel = function imageCarouselFactory(
     // Previous Control
     const prevControl = document.createElement("div");
     prevControl.classList.add("crsl__control", "crsl__control--prev");
-    prevControl.addEventListener("click", controlPressed);
+    prevControl.addEventListener("click", () => navigateImages("prev"));
     carousel.appendChild(prevControl);
 
     const prevIcon = svg(chevronLeft);
@@ -99,7 +108,7 @@ const ImageCarousel = function imageCarouselFactory(
     // Next Control
     const nextControl = document.createElement("div");
     nextControl.classList.add("crsl__control", "crsl__control--next");
-    nextControl.addEventListener("click", controlPressed);
+    nextControl.addEventListener("click", () => navigateImages("next"));
     carousel.appendChild(nextControl);
 
     const nextIcon = svg(chevronRight);
@@ -108,6 +117,8 @@ const ImageCarousel = function imageCarouselFactory(
 
     return carousel;
   };
+
+  resetTimer();
 
   return render();
 };
