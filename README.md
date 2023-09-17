@@ -2,7 +2,7 @@
 
 `@akande/image-carousel` is a lightweight JavaScript module that allows you to easily create customizable image carousels. It provides a lightweight and flexible solution for showcasing images in a visually appealing and interactive way.
 
-To see the module in action, [click here!](https://elliot-akande.github.io/image-carousel-example/) [[GitHub](https://github.com/Elliot-Akande/image-carousel-example)]
+To see the module in action, [click here](https://elliot-akande.github.io/image-carousel-example/) [[GitHub](https://github.com/Elliot-Akande/image-carousel-example)]
 
 ## Features
 
