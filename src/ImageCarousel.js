@@ -8,6 +8,30 @@ const ImageCarousel = function imageCarouselFactory(
   images = [],
   customClass = ""
 ) {
+  const changeImg = function slideCarouselToImg(index) {
+    const img = document.querySelector(`[data-index='${index}'].crsl__image`);
+    img.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+
+    const lastIndicator = document.querySelector(".crsl__indicator--active");
+    const nextIndicator = document.querySelector(
+      `[data-index='${index}'].crsl__indicator`
+    );
+    lastIndicator.classList.toggle("crsl__indicator--active");
+    nextIndicator.classList.toggle("crsl__indicator--active");
+  };
+
+  const controlPressed = function slideCarouselToNextImage(event) {
+    const activeIndicator = document.querySelector(".crsl__indicator--active");
+    const lastIndex = parseInt(activeIndicator.dataset.index, 10);
+
+    const control = event.currentTarget;
+    const index = control.classList.contains("crsl__control--prev")
+      ? modulo(lastIndex - 1, images.length)
+      : modulo(lastIndex + 1, images.length);
+
+    changeImg(index);
+  };
+
   const createImage = function createImageDOMElement(
     src,
     index,
@@ -60,11 +84,12 @@ const ImageCarousel = function imageCarouselFactory(
     // Set Initial Image
     indicators
       .querySelector(".crsl__indicator")
-      .classList.add(".crsl__indicator--active");
+      .classList.add("crsl__indicator--active");
 
     // Previous Control
     const prevControl = document.createElement("div");
     prevControl.classList.add("crsl__control", "crsl__control--prev");
+    prevControl.addEventListener("click", controlPressed);
     carousel.appendChild(prevControl);
 
     const prevIcon = svg(chevronLeft);
@@ -74,6 +99,7 @@ const ImageCarousel = function imageCarouselFactory(
     // Next Control
     const nextControl = document.createElement("div");
     nextControl.classList.add("crsl__control", "crsl__control--next");
+    nextControl.addEventListener("click", controlPressed);
     carousel.appendChild(nextControl);
 
     const nextIcon = svg(chevronRight);
