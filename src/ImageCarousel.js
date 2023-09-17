@@ -41,11 +41,12 @@ const ImageCarousel = function imageCarouselFactory(
     changeImg(index);
   };
 
-  const createImage = function createImageDOMElement(
-    src,
-    index,
-    indicatorContainer
-  ) {
+  const indicatorPressed = function handleIndicatorPressed(event) {
+    const { index } = event.currentTarget.dataset;
+    changeImg(index);
+  };
+
+  const createImage = function createImageDOMElement(src, index) {
     // Container
     const container = document.createElement("div");
     container.classList.add("crsl__image");
@@ -56,13 +57,16 @@ const ImageCarousel = function imageCarouselFactory(
     img.src = src;
     container.appendChild(img);
 
-    // Add Indicator
+    return container;
+  };
+
+  const createIndicator = function createIndicatorDOMElement(index) {
     const indicator = document.createElement("div");
     indicator.classList.add("crsl__indicator");
     indicator.dataset.index = index;
-    indicatorContainer.appendChild(indicator);
+    indicator.addEventListener("click", indicatorPressed);
 
-    return container;
+    return indicator;
   };
 
   const render = function renderImageCarousel() {
@@ -90,9 +94,10 @@ const ImageCarousel = function imageCarouselFactory(
     carousel.appendChild(imagesContainer);
 
     // Images
-    images.forEach((image, index) =>
-      imagesContainer.appendChild(createImage(image, index, indicators))
-    );
+    images.forEach((image, index) => {
+      imagesContainer.appendChild(createImage(image, index, indicators));
+      indicators.appendChild(createIndicator(index));
+    });
 
     // Set Initial Image
     indicators
